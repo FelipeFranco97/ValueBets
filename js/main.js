@@ -76,10 +76,10 @@ function resetear(){
     saldoUpdate = 0;
     cuota = 0;
     
-    document.getElementById("probabilidad").innerHTML = probabilidad;
-    document.getElementById("valorApostado").innerHTML = 0;
+    document.getElementById("probabilidad").value = " ";
+    document.getElementById("valorApostado").value = " ";
     document.getElementById("valorCuota").innerHTML = " ";
-    document.getElementById("saldoInicial").innerHTML = 0;
+    document.getElementById("saldoInicial").value = " ";
     document.getElementById("saldoActual").innerHTML = " ";
     document.getElementById("valorGanado").innerHTML = " ";
 }
