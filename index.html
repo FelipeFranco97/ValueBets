@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Final</title>
+</head>
+<body>
+   <section id="seccion1" class="splash">
+       <h1>Apuestas de Valor (Valuebets)</h1>
+       <h1>Por: Juan Felipe Franco</h1>
+   </section>
+    <section id="seccion2" class="main oculto">
+       
+        <p>Ingrese Probabilidad: </p>
+        <input type="text" id="probabilidad"><br><br>
+        <button onclick="ingresarProbabilidad()">Ingresar</button>
+        
+        <p>Ingrese el Valor Apostado: </p>
+        <input type="text" id="valorApostado"><br><br>
+        <button onclick="ingresarApostado()">Ingresar</button>
+        
+        <p>Ingrese el saldo inicial: </p>
+        <input type="text" id="saldoInicial"><br><br>
+        <button onclick="ingresarSaldoInicial()">Ingresar</button><br><br>
+        <button onclick="calcularValorGanado()">Calcular valor ganado</button><br><br>
+        
+        <p>Cuota:</p>
+        <p id="valorCuota"></p>
+        
+        <p>Valor Ganado: </p>
+        <p id="valorGanado"></p>
+        
+        
+        <p>Saldo actual: </p>
+        <span id="saldoActual"></span><br><br>
+        
+        <button onclick="resetear()">Reset</button>
+    </section>
+    <script src="js/main.js"></script>
+</body>
+</html>
