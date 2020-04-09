@@ -4,6 +4,7 @@ var saldoInicial;
 var ganado;
 var saldoUpdate;
 var cuota;
+var saldoActual;
 
 var random;
 
@@ -37,15 +38,21 @@ function ingresarProbabilidad(){
 
 function ingresarApostado(){
     apostado = document.getElementById("valorApostado").value;
-    cuota = document.getElementById("valorCuota").textContent;  
+    cuota = document.getElementById("valorCuota").textContent;
+    saldoActual = document.getElementById("saldoActual").textContent;
+    
+    if(apostado>saldoActual){
+        window.alert("El valor apostado es mayor a su saldo, ingrese un valor válido");
+        document.getElementById("valorApostado").value = " ";
+    }else
     ganado = cuota*apostado;
 }
 
 //Acá se ingresa el saldo inicial.
     
 function ingresarSaldoInicial(){
-    saldoInicial = document.getElementById("saldoInicial").value;
-    document.getElementById("saldoActual").innerHTML = saldoInicial;
+        saldoInicial = document.getElementById("saldoInicial").value;
+        document.getElementById("saldoActual").innerHTML = saldoInicial;
 }
 
 //Acá se genera el valor ganado y se actualiza el saldo.
