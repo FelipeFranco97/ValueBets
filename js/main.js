@@ -10,6 +10,7 @@ var valorApostado;
 var valorSaldoActual;
 
 var random;
+var i = 0;
 
 var secciones = [];
 var tiempo_splash=3000;
@@ -26,7 +27,7 @@ function inicializarReferencias(){
 
 function cambiarSplash(){
     secciones[1].className = "splash oculto";
-    secciones[2].className = "main";
+    secciones[2].className = "main animated bounceInDown";
 }
 
 //Acá se ingresa la probabilidad.
@@ -58,9 +59,13 @@ function ingresarApostado(){
 //Acá se ingresa el saldo inicial.
     
 function ingresarSaldoInicial(){
-        saldoInicial = document.getElementById("saldoInicial").value;
-        document.getElementById("saldoActual").innerHTML = saldoInicial;
-        saldoActual = document.getElementById("saldoActual").textContent;
+    saldoInicial = document.getElementById("saldoInicial").value;
+    document.getElementById("saldoActual").innerHTML = saldoInicial;
+    saldoActual = document.getElementById("saldoActual").textContent;
+    valorSaldoActual = parseInt(saldoActual, 10);
+    
+    añadirDatos();
+
 }
 
 //Acá se genera el valor ganado y se actualiza el saldo.
@@ -74,14 +79,33 @@ function calcularValorGanado(){
         document.getElementById("valorGanado").innerHTML = ganado;
         saldoUpdate = document.getElementById("saldoActual").textContent;
         document.getElementById("saldoActual").innerHTML = saldoUpdate-apostado+ganado;
+        saldoActual = document.getElementById("saldoActual").textContent;
+        valorSaldoActual = parseInt(saldoActual, 10);
+        i++;
+        añadirDatos();
+        
         return;
     }else
         document.getElementById("valorGanado").innerHTML = 0;
         saldoUpdate = document.getElementById("saldoActual").textContent;
         document.getElementById("saldoActual").innerHTML = saldoUpdate-apostado+0;
+        i++;
+        saldoActual = document.getElementById("saldoActual").textContent;
+        valorSaldoActual = parseInt(saldoActual, 10);
+        añadirDatos();
+    
+    if(valorSaldoActual<=0){
+        window.alert("Saldo insuficiente");
+        resetear();
+    }
+    
+   
+    
     
     
 }
+
+//Acá se reinician todos los valores.
 
 function resetear(){
     probabilidad = 0;
@@ -98,3 +122,31 @@ function resetear(){
     document.getElementById("saldoActual").innerHTML = " ";
     document.getElementById("valorGanado").innerHTML = " ";
 }
+
+
+    
+ 
+var ctx = document.getElementById("myChart").getContext("2d");
+
+var myChart = new Chart(ctx,{
+type: "line",
+data: {
+    labels:[],
+    datasets:[{
+        label : "Saldo Apuestas", 
+        data:[]
+    }]
+},
+options: {
+    responsive: false,
+    maintainAspectRatio: false
+}
+});
+    
+
+function añadirDatos(){
+    myChart.data.datasets[0].data.push(valorSaldoActual);
+    myChart.data.labels.push(i);
+    myChart.update();
+}
+
