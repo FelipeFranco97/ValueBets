@@ -8,6 +8,7 @@ var saldoActual = 0;
 
 var valorApostado;
 var valorSaldoActual;
+var valorProbabilidad;
 
 var random;
 var i = 0;
@@ -35,7 +36,13 @@ function cambiarSplash(){
 function ingresarProbabilidad(){
     
     probabilidad = document.getElementById("probabilidad").value;
-    document.getElementById("valorCuota").innerHTML = (1/probabilidad).toFixed(2);
+    valorProbabilidad = parseInt(probabilidad, 10);
+    
+    if(valorProbabilidad<0 || valorProbabilidad>1){
+        window.alert("Ingrese un valor entre 0 y 1");
+        document.getElementById("probabilidad").value = "";
+    }else
+        document.getElementById("valorCuota").innerHTML = (1/probabilidad).toFixed(2); 
 }
 
 //Acá se ingresa el valor apostado.
@@ -72,36 +79,38 @@ function ingresarSaldoInicial(){
 
 function calcularValorGanado(){
     
-    //Tengo que hacer un IF que genere un numero random, si ese numero random es igual o menor a la probabilidad dada anteriormente, gana y el valor ganado sera igual al valor apostado*la cuota, si es mayor, pierde y uno de los 2 valores sera 0, para que la multiplicacion sea 0.
-    
-    random = Math.random();
-    if (random <= probabilidad){
-        document.getElementById("valorGanado").innerHTML = ganado;
-        saldoUpdate = document.getElementById("saldoActual").textContent;
-        document.getElementById("saldoActual").innerHTML = saldoUpdate-apostado+ganado;
-        saldoActual = document.getElementById("saldoActual").textContent;
-        valorSaldoActual = parseInt(saldoActual, 10);
-        i++;
-        añadirDatos();
-        
+    if(probabilidad == "" || apostado == "" || saldoInicial == ""){
+        window.alert("Por favor ingrese todos los valores");
         return;
     }else
-        document.getElementById("valorGanado").innerHTML = 0;
-        saldoUpdate = document.getElementById("saldoActual").textContent;
-        document.getElementById("saldoActual").innerHTML = saldoUpdate-apostado+0;
-        i++;
-        saldoActual = document.getElementById("saldoActual").textContent;
-        valorSaldoActual = parseInt(saldoActual, 10);
-        añadirDatos();
     
-    if(valorSaldoActual<=0){
-        window.alert("Saldo insuficiente");
-        resetear();
-    }
-    
-   
-    
-    
+        //Tengo que hacer un IF que genere un numero random, si ese numero random es igual o menor a la probabilidad dada anteriormente, gana y el valor ganado sera igual al valor apostado*la cuota, si es mayor, pierde y uno de los 2 valores sera 0, para que la multiplicacion sea 0.
+
+        random = Math.random();
+        if (random <= probabilidad){
+            document.getElementById("valorGanado").innerHTML = ganado.toFixed(0);
+            saldoUpdate = document.getElementById("saldoActual").textContent;
+            document.getElementById("saldoActual").innerHTML = (saldoUpdate-apostado+ganado).toFixed(0);
+            saldoActual = document.getElementById("saldoActual").textContent;
+            valorSaldoActual = parseInt(saldoActual, 10);
+            i++;
+            añadirDatos();
+
+            return;
+        }else
+            document.getElementById("valorGanado").innerHTML = 0;
+            saldoUpdate = document.getElementById("saldoActual").textContent;
+            document.getElementById("saldoActual").innerHTML = saldoUpdate-apostado+0;
+            i++;
+            saldoActual = document.getElementById("saldoActual").textContent;
+            valorSaldoActual = parseInt(saldoActual, 10);
+            añadirDatos();
+
+        if(valorSaldoActual<=0){
+            window.alert("Saldo insuficiente");
+            resetear();
+        }
+
     
 }
 
@@ -114,6 +123,8 @@ function resetear(){
     ganado = 0;
     saldoUpdate = 0;
     cuota = 0;
+    i = 0;
+    valorSaldoActual = 0;
     
     document.getElementById("probabilidad").value = " ";
     document.getElementById("valorApostado").value = " ";
@@ -121,11 +132,11 @@ function resetear(){
     document.getElementById("saldoInicial").value = " ";
     document.getElementById("saldoActual").innerHTML = " ";
     document.getElementById("valorGanado").innerHTML = " ";
+    
+    borrarDatos();
 }
 
 
-    
- 
 var ctx = document.getElementById("myChart").getContext("2d");
 
 var myChart = new Chart(ctx,{
@@ -150,3 +161,22 @@ function añadirDatos(){
     myChart.update();
 }
 
+function borrarDatos(){
+    myChart.destroy();
+    ctx = document.getElementById("myChart").getContext("2d");
+
+    myChart = new Chart(ctx,{
+        type: "line",
+        data: {
+        labels:[],
+            datasets:[{
+                label : "Saldo Apuestas", 
+                data:[]
+            }]
+        },
+        options: {
+        responsive: false,
+        maintainAspectRatio: false
+        }
+    });
+}

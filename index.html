@@ -4,40 +4,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Final</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 </head>
 <body>
-   <section id="seccion1" class="splash">
+   <section id="seccion1" class="splash animated bounceInDown">
        <h1>Apuestas de Valor (Valuebets)</h1>
        <h1>Por: Juan Felipe Franco</h1>
    </section>
     <section id="seccion2" class="main oculto">
        
-        <p>Ingrese el saldo inicial: </p>
+        <p class="texto">Ingrese el saldo inicial: </p>
         <input type="text" id="saldoInicial"><br><br>
-        <button onclick="ingresarSaldoInicial()">Ingresar</button>
+        <button onclick="ingresarSaldoInicial()" class="boton">Ingresar</button>
        
-        <p>Ingrese Probabilidad: </p>
+        <p class="texto">Ingrese Probabilidad: </p>
         <input type="text" id="probabilidad"><br><br>
-        <button onclick="ingresarProbabilidad()">Ingresar</button>
+        <button onclick="ingresarProbabilidad()" class="boton">Ingresar</button>
         
-        <p>Ingrese el Valor Apostado: </p>
+        <p class="texto">Ingrese el Valor Apostado: </p>
         <input type="text" id="valorApostado"><br><br>
-        <button onclick="ingresarApostado()">Ingresar</button><br><br>
+        <button onclick="ingresarApostado()" class="boton">Ingresar</button><br><br>
         
         
-        <button onclick="calcularValorGanado()">Calcular valor ganado</button><br><br>
+        <button onclick="calcularValorGanado()" id="botonGanado">Calcular valor ganado</button><br><br>
         
-        <p>Cuota:</p>
-        <p id="valorCuota"></p>
+        <p class="texto valores" id="textoCuota">Cuota:</p>
+        <p class="valores" id="valorCuota"></p>
         
-        <p>Valor Ganado: </p>
-        <p id="valorGanado"></p>
+        <p class="texto valores" id="textoValorGanado">Valor Ganado: </p>
+        <p class="valores" id="valorGanado"></p>
         
+        <p class="texto valores" id="textoSaldoActual">Saldo actual: </p>
+        <p class="valores" id="saldoActual"></p><br><br>
         
-        <p>Saldo actual: </p>
-        <p id="saldoActual"></p><br><br>
+        <button onclick="resetear()" id="reiniciar">Reiniciar</button>
         
-        <button onclick="resetear()">Reset</button>
+        <canvas id="myChart" width="600" height="600"></canvas>
     </section>
     <script src="js/main.js"></script>
 </body>

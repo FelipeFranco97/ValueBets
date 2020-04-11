@@ -6,8 +6,173 @@
 body{
     background: #F0CACA;
     font-family: Roboto;
+    margin: 50px;
+    overflow: hidden;
 }
 
 .oculto{
     display:none;
+}
+
+#myChart{
+    position: absolute;
+    left: 700px;
+    bottom: 130px;
+}
+
+.boton{
+    position: relative;
+    left: 200px;
+    bottom: 40px;
+}
+
+.texto{
+    font-weight: bold;
+}
+
+.valores{
+    position: relative;
+    left: 350px;
+    bottom: 400px;
+}
+
+#textoCuota{
+    position: absolute;
+    left: 400px;
+    bottom: 700px;
+}
+
+#valorCuota{
+    position: absolute;
+    bottom: 670px;
+    left: 400px;
+}
+
+#textoValorGanado{
+    position: absolute;
+    left: 400px;
+    bottom: 593px;
+}
+
+#valorGanado{
+    position: absolute;
+    bottom: 555px;
+    left: 400px;
+}
+
+#textoSaldoActual{
+    position: absolute;
+    left: 400px;
+    bottom: 480px;
+}
+
+#saldoActual{
+    position: absolute;
+    bottom: 444px;
+    left: 400px;
+}
+
+#botonGanado{
+    width: 200px;
+    height: 50px;
+    background: green;
+}
+
+#reiniciar{
+    width: 200px;
+    height: 50px;
+    background: red;
+    position: absolute;
+    bottom: 140px;
+}
+
+@charset "UTF-8";
+
+/*!
+ * animate.css -https://daneden.github.io/animate.css/
+ * Version - 3.7.2
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2019 Daniel Eden
+ */
+
+@-webkit-keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
 }
