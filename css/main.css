@@ -4,10 +4,176 @@
 }
 
 body{
-    background: #F0CACA;
+    background: #98B2E0 ;
     font-family: Roboto;
     margin: 50px;
-    overflow: hidden;
+}
+
+#seccion1{
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+#seccion11{
+    text-align: center;
+}
+
+#textoMenu{
+    position: relative;
+    top: 200px !important;
+}
+
+.botonesMenu{
+    width: 400px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 50px;
+    position: relative;
+    top: 200px;
+    left: 250px;
+    background: #32a899;
+}
+
+#seccion3{
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+#textoAutomatico{
+    position: relative;
+    bottom: 60px;
+    font-size: 40px;
+}
+
+#textoBienvenida{
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    bottom: 0px;
+}
+
+#ingresarAutomatico{
+    width: 200px;
+    height: 30px;
+    position: relative;
+    left: 100px;
+    font-weight: bold;
+    background: lightgreen;
+}
+
+#backAutomatico{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    bottom: -150px;
+    right: 100px;
+    font-weight: bold;
+    background: #ef3d47;
+}
+
+#seccion4{
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+#textoProbabilidad{
+    position: relative;
+    bottom: 60px;
+    font-size: 40px;
+}
+
+.botonesProbabilidad{
+    width: 400px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 50px;
+    position: relative;
+    bottom: 50px;
+    left: 100px;
+    background: #32a899;
+}
+
+#backProbabilidad{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    bottom: -180px;
+    right: 500px;
+    font-weight: bold;
+    background: #ef3d47;
+}
+
+#seccion5{
+    text-align: center;
+    position: relative;
+    top: 30%
+}
+
+#textoConservadora{
+    position: relative;
+    bottom: 60px;
+    font-size: 40px;
+}
+
+.botonesConservadora{
+    width: 400px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 50px;
+    position: relative;
+    bottom: 50px;
+    left: 100px;
+    background: #32a899;
+}
+
+#backConservadora{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    bottom: -180px;
+    right: 500px;
+    font-weight: bold;
+    background: #ef3d47;
+}
+
+#seccion6{
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+#textoArriesgada{
+    position: relative;
+    bottom: 60px;
+    font-size: 40px;
+}
+
+.botonesArriesgada{
+    width: 400px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 50px;
+    position: relative;
+    bottom: 50px;
+    left: 100px;
+    background: #32a899;
+}
+
+#backArriesgada{
+     width: 200px;
+    height: 40px;
+    position: relative;
+    bottom: -180px;
+    right: 500px;
+    font-weight: bold;
+    background: #ef3d47;
 }
 
 .oculto{
@@ -15,6 +181,30 @@ body{
 }
 
 #myChart{
+    position: absolute;
+    left: 700px;
+    bottom: 130px;
+}
+
+#chartConservadoraEconomizadora{
+    position: absolute;
+    left: 700px;
+    bottom: 130px;
+}
+
+#chartConservadoraDerrochadora{
+    position: absolute;
+    left: 700px;
+    bottom: 130px;
+}
+
+#chartArriesgadaEconomizadora{
+    position: absolute;
+    left: 700px;
+    bottom: 130px;
+}
+
+#chartArriesgadaDerrochadora{
     position: absolute;
     left: 700px;
     bottom: 130px;
@@ -76,6 +266,7 @@ body{
     width: 200px;
     height: 50px;
     background: green;
+    font-weight: bold;
 }
 
 #reiniciar{
@@ -83,9 +274,93 @@ body{
     height: 50px;
     background: red;
     position: absolute;
-    bottom: 140px;
+    bottom: 60px;
+    font-weight: bold;
 }
 
+#backManual{
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    bottom: 160px;
+    font-weight: bold;
+}
+
+#prueba{
+    position: absolute;
+    bottom: 180px;
+}
+
+.textoCuotaAutomatica{
+    position: absolute;
+    left: 400px;
+    top: 147px;
+}
+
+.cuotaAutomatica{
+    position: absolute;
+    left: 400px;
+    top: 180px;
+}
+
+.textoGanadoAutomatico{
+    position: absolute;
+    left: 400px;
+    top: 215px;
+}
+
+.ganadoAutomatico{
+    position: absolute;
+    left: 400px;
+    top: 255px;
+}
+
+.textoFinalAutomatico{
+    position: absolute;
+    left: 400px;
+    top: 290px;
+}
+
+.finalAutomatico{
+    position: absolute;
+    left: 400px;
+    top: 325px;
+}
+
+.probabilidadAutomatica{
+    position: absolute;
+    top: 255px;
+}
+
+.textoApostadoAutomatico{
+    position: absolute;
+    top: 290px;
+}
+
+.apostadoAutomatico{
+    position: absolute;
+    top: 325px;
+}
+
+.iniciar{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    left: 50px;
+    bottom: 300px;
+    font-weight: bold;
+    background: lightgreen;
+}
+
+.reset{
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    top: 600;
+    left: 50px;
+    font-weight: bold;
+    background: #ef3d47;
+}
 @charset "UTF-8";
 
 /*!

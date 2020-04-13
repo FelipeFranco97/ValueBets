@@ -7,40 +7,280 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 </head>
 <body>
+  
+                                            <!-- Splash -->
+  
    <section id="seccion1" class="splash animated bounceInDown">
        <h1>Apuestas de Valor (Valuebets)</h1>
        <h1>Por: Juan Felipe Franco</h1>
    </section>
+   
+                                         
+                                         
+                                          <!-- Sección manual -->
+   
+   
+   
     <section id="seccion2" class="main oculto">
-       
+        
+        <!-- Saldo Inicial -->
+        
         <p class="texto">Ingrese el saldo inicial: </p>
         <input type="text" id="saldoInicial"><br><br>
         <button onclick="ingresarSaldoInicial()" class="boton">Ingresar</button>
+        
+        <!-- Probabilidad -->
        
         <p class="texto">Ingrese Probabilidad: </p>
         <input type="text" id="probabilidad"><br><br>
         <button onclick="ingresarProbabilidad()" class="boton">Ingresar</button>
+        
+        <!-- Valor Apostado -->
         
         <p class="texto">Ingrese el Valor Apostado: </p>
         <input type="text" id="valorApostado"><br><br>
         <button onclick="ingresarApostado()" class="boton">Ingresar</button><br><br>
         
         
+        <!-- Botón que hace todo -->
+        
+        
         <button onclick="calcularValorGanado()" id="botonGanado">Calcular valor ganado</button><br><br>
+        
+        <!-- Cuota -->
         
         <p class="texto valores" id="textoCuota">Cuota:</p>
         <p class="valores" id="valorCuota"></p>
         
+        <!-- Valor Ganado -->
+        
         <p class="texto valores" id="textoValorGanado">Valor Ganado: </p>
         <p class="valores" id="valorGanado"></p>
+        
+        <!-- Saldo Actual -->
         
         <p class="texto valores" id="textoSaldoActual">Saldo actual: </p>
         <p class="valores" id="saldoActual"></p><br><br>
         
+        
+        <!-- Boton reset -->
+        
+        
         <button onclick="resetear()" id="reiniciar">Reiniciar</button>
+        
+        <button onclick="backManual()" id="backManual">Regresar</button>
+        
+        <!-- Gráfico -->
         
         <canvas id="myChart" width="600" height="600"></canvas>
     </section>
+    
+    
+                                        <!-- Sección automático -->
+    
+    
+    <section id="seccion3" class="automatico oculto">
+        <h1 id="textoAutomatico">Bienvenido al modo automático</h1>
+        
+        <!-- Saldo Inicial -->
+        
+        <p id="textoBienvenida">Ingrese el saldo inicial: </p>
+        <input type="text" id="saldoInicialAutomatico"><br><br>
+        <button onclick="ingresarSaldoInicialAutomatico()" id="ingresarAutomatico">Ingresar</button>
+        <button onclick="backAutomatico()" id="backAutomatico">Regresar</button>
+        
+    </section>
+
+                                        <!-- Sección Probabilidad -->
+    
+    <section id="seccion4" class="probabilidadGanar oculto">
+        <h1 id="textoProbabilidad">Probabilidad de ganar</h1>
+        
+        <!-- Estrategia Conservadora -->
+
+        <button onclick="conservadora()" class="botonesProbabilidad">Estrategia Conservadora</button>
+        
+        <!-- Estrategia Arriesgada -->
+        
+        <button onclick="arriesgada()" class="botonesProbabilidad">Estrategia Arriesgada</button>
+        
+        <button onclick="backProbabilidad()" id="backProbabilidad">Regresar</button>
+    </section>
+    
+                                        <!-- Sección Conservadora -->
+    
+    <section id="seccion5" class="conservadora oculto">
+        <h1 id="textoConservadora">Valor Apostado</h1>
+        
+        <!-- Estrategia Economizadora -->
+
+        <button onclick="economizadoraConservadora()" class="botonesConservadora">Estrategia Economizadora</button>
+        
+        <!-- Estrategia Derrochadora -->
+        
+        <button onclick="derrochadoraConservadora()" class="botonesConservadora">Estrategia Derrochadora</button>
+        
+        <button onclick="backApostado()" id="backConservadora">Regresar</button>
+    </section>
+    
+                                        <!-- Sección Arriesgada -->
+    
+    <section id="seccion6" class="arriesgada oculto">
+        <h1 id="textoArriesgada">Valor Apostado</h1>
+        
+        <!-- Estrategia Economizadora -->
+
+        <button onclick="economizadoraArriesgada()" class="botonesArriesgada">Estrategia Economizadora</button>
+        
+        <!-- Estrategia Derrochadora -->
+        
+        <button onclick="derrochadoraArriesgada()" class="botonesArriesgada">Estrategia Derrochadora</button>
+        
+        <button onclick="backApostado()" id="backArriesgada">Regresar</button>
+    </section>
+    
+                                        <!-- Sección Conservadora/Economizadora -->
+    
+    <seccion id="seccion7" class="conservadora_economizadora oculto">
+       
+        <p class="texto">Ingrese el número de apuestas: </p>
+        <input type="text" id="apuestasConservadoraEconomizadora"><br><br>
+        <button onclick="apuestasEconomizadorConservadora()">Ingresar</button>
+        
+        <p class="texto">Saldo inicial: </p>
+        <p id="saldoInicialConservadoraEconomizadora"></p>
+        
+        <p class="texto">Probabilidad de la última apuesta: </p>
+        <p id="probabilidadConservadoraEconomizadora" class="probabilidadAutomatica"></p>
+        
+        <p class="texto textoApostadoAutomatico">Último valor apostado: </p>
+        <p id="ultimoValorConservadoraEconomizadora" class="apostadoAutomatico"></p>
+        
+        <p class="texto textoCuotaAutomatica">Cuota de la última apuesta: </p>
+        <p id="ultimaCuotaConservadoraEconomizadora" class="cuotaAutomatica"></p>
+        
+        <p class="texto textoGanadoAutomatico">Último valor ganado: </p>
+        <p id="ultimoGanadoConservadoraEconomizadora" class="ganadoAutomatico"></p>
+        
+        <p class="texto textoFinalAutomatico">Saldo Final: </p>
+        <p id="ultimoSaldoConservadoraEconomizadora" class="finalAutomatico"></p>
+        
+        <button onclick="valorEconomizadorConservadora()" class="iniciar">Iniciar</button>
+        
+        <button onclick="resetAutomatico()" class="reset">Reiniciar</button>
+        
+        <canvas id="chartConservadoraEconomizadora" width="600" height="600"></canvas>
+        
+    </seccion>
+    
+                                        <!-- Sección Conservadora/Derrochadora -->
+    
+    <seccion id="seccion8" class="conservadora_derrochadora oculto">
+        
+        <p class="texto">Ingrese el número de apuestas: </p>
+        <input type="text" id="apuestasConservadoraDerrochadora"><br><br>
+        <button onclick="apuestasDerrochadoraConservadora()">Ingresar</button>
+        
+        <p class="texto">Saldo inicial: </p>
+        <p id="saldoInicialConservadoraDerrochadora"></p>
+        
+        <p class="texto">Probabilidad de la última apuesta: </p>
+        <p id="probabilidadConservadoraDerrochadora" class="probabilidadAutomatica"></p>
+        
+        <p class="texto textoApostadoAutomatico">Último valor apostado: </p>
+        <p id="ultimoValorConservadoraDerrochadora" class="apostadoAutomatico"></p>
+        
+        <p class="texto textoCuotaAutomatica">Cuota de la última apuesta: </p>
+        <p id="ultimaCuotaConservadoraDerrochadora" class="cuotaAutomatica"></p>
+        
+        <p class="texto textoGanadoAutomatico">Último valor ganado: </p>
+        <p id="ultimoGanadoConservadoraDerrochadora" class="ganadoAutomatico"></p>
+        
+        <p class="texto textoFinalAutomatico">Saldo Final: </p>
+        <p id="ultimoSaldoConservadoraDerrochadora" class="finalAutomatico"></p>
+        
+        <button onclick="valorDerrochadoraConservadora()" class="iniciar">Iniciar</button>
+        
+        <button onclick="resetAutomatico()" class="reset">Reiniciar</button>
+        
+        <canvas id="chartConservadoraDerrochadora" width="600" height="600"></canvas>
+        
+    </seccion>
+    
+                                        <!-- Sección Arriesgada/Economizadora -->
+    
+    <seccion id="seccion9" class="arriesgada_economizadora oculto">
+        
+        <p class="texto">Ingrese el número de apuestas: </p>
+        <input type="text" id="apuestasArriesgadaEconomizadora"><br><br>
+        <button onclick="apuestasEconomizadorArriesgada()">Ingresar</button>
+        
+        <p class="texto">Saldo inicial: </p>
+        <p id="saldoInicialArriesgadaEconomizadora"></p>
+        
+        <p class="texto">Probabilidad de la última apuesta: </p>
+        <p id="probabilidadArriesgadaEconomizadora" class="probabilidadAutomatica"></p>
+        
+        <p class="texto textoApostadoAutomatico">Último valor apostado: </p>
+        <p id="ultimoValorArriesgadaEconomizadora" class="apostadoAutomatico"></p>
+        
+        <p class="texto textoCuotaAutomatica">Cuota de la última apuesta: </p>
+        <p id="ultimaCuotaArriesgadaEconomizadora" class="cuotaAutomatica"></p>
+        
+        <p class="texto textoGanadoAutomatico">Último valor ganado: </p>
+        <p id="ultimoGanadoArriesgadaEconomizadora" class="ganadoAutomatico"></p>
+        
+        <p class="texto textoFinalAutomatico">Saldo Final: </p>
+        <p id="ultimoSaldoArriesgadaEconomizadora" class="finalAutomatico"></p>
+        
+        <button onclick="valorArriesgadaEconomizadora()" class="iniciar">Iniciar</button>
+        
+        <button onclick="resetAutomatico()" class="reset">Reiniciar</button>
+        
+        <canvas id="chartArriesgadaEconomizadora" width="600" height="600"></canvas>
+        
+    </seccion>
+    
+                                        <!-- Sección Arriesgada/Derrochadora -->
+    
+    <seccion id="seccion10" class="arriesgada_derrochadora oculto">
+        
+        <p class="texto">Ingrese el número de apuestas: </p>
+        <input type="text" id="apuestasArriesgadaDerrochadora"><br><br>
+        <button onclick="apuestasDerrochadorArriesgada()">Ingresar</button>
+        
+        <p class="texto">Saldo inicial: </p>
+        <p id="saldoInicialArriesgadaDerrochadora"></p>
+        
+        <p class="texto">Probabilidad de la última apuesta: </p>
+        <p id="probabilidadArriesgadaDerrochadora" class="probabilidadAutomatica"></p>
+        
+        <p class="texto textoApostadoAutomatico">Último valor apostado: </p>
+        <p id="ultimoValorArriesgadaDerrochadora" class="apostadoAutomatico"></p>
+        
+        <p class="texto textoCuotaAutomatica">Cuota de la última apuesta: </p>
+        <p id="ultimaCuotaArriesgadaDerrochadora" class="cuotaAutomatica"></p>
+        
+        <p class="texto textoGanadoAutomatico">Último valor ganado: </p>
+        <p id="ultimoGanadoArriesgadaDerrochadora" class="ganadoAutomatico"></p>
+        
+        <p class="texto textoFinalAutomatico">Saldo Final: </p>
+        <p id="ultimoSaldoArriesgadaDerrochadora" class="finalAutomatico"></p>
+        
+        <button onclick="valorArriesgadaDerrochadora()" class="iniciar">Iniciar</button>
+        
+        <button onclick="resetAutomatico()" class="reset">Reiniciar</button>
+        
+        <canvas id="chartArriesgadaDerrochadora" width="600" height="600"></canvas>
+        
+    </seccion>
+    
+    <seccion id="seccion11" class="menu oculto">
+       <h1 id="textoMenu">¿En qué modo quieres jugar?</h1>
+        <button onclick="modoManual()" class="botonesMenu" id="modoManual">Modo Manual</button>
+        <button onclick="modoAutomatico()" class="botonesMenu" id="modoAutomatico">Modo Automatico</button>
+    </seccion>
+    
     <script src="js/main.js"></script>
 </body>
 </html>
