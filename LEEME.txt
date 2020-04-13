@@ -1,0 +1,13 @@
+Repositorio del proyecto:
+
+https://github.com/FelipeFranco97/ValueBets.git
+
+Herramientas usadas:
+Visual Studio Code
+Brackets
+
+Hecho con:
+html
+css
+javascript
+chart.js
